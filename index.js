@@ -54,9 +54,11 @@ function like(req, res) {
         joke.likes++;
 
         fs.writeFileSync(filePath, JSON.stringify(joke))
-    }
 
-    res.end();
+        joke.id = id;
+
+        res.end(JSON.stringify(joke));
+    }
 }
 
 function dislike(req, res) {
@@ -73,12 +75,16 @@ function dislike(req, res) {
         joke.dislikes++;
 
         fs.writeFileSync(filePath, JSON.stringify(joke))
-    }
+        
+        joke.id = id;
 
-    res.end();
+        res.end(JSON.stringify(joke));
+    }
 }
 
 const server = http.createServer((req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", '*');
+    
     if (req.url == "/jokes" && req.method == "GET") { // Отримання всіх жартів
         getAllJokes(req, res);
     } else if (req.url == "/jokes" && req.method == "POST") { // Додавання жарта
