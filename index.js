@@ -9,7 +9,7 @@ function getAllJokes(req, res) {
     let dir = fs.readdirSync(dataPath)
     let allJokes = []
     for (let i = 0; i < dir.length; i++) {
-        let file = fs.readFileSync(path.join(dataPath, i+'.json'))  // Отримуємо файл
+        let file = fs.readFileSync(path.join(dataPath, i + '.json'))  // Отримуємо файл
         let jokeJson = Buffer.from(file).toString() // Отримуємо вміст файлу та перетворюємо в рядок
         let joke = JSON.parse(jokeJson); // Робимо з нього JS Object
         joke.id = i;
@@ -32,7 +32,7 @@ function addJokes(req, res) {
         joke.dislikes = 0
 
         let dir = fs.readdirSync(dataPath)
-        let fileName = dir.length+'.json'
+        let fileName = dir.length + '.json'
         let filePath = path.join(dataPath, fileName)
         fs.writeFileSync(filePath, JSON.stringify(joke))
 

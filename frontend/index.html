@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R😂B😂J😂KE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <img class="header__img" src="logo.png" alt="logo">
+        <h1 class="header__title">R😂B😂J😂KE</h1>
+    </header>
+    <main>
+        <h2 class="main__title">Like, dislike or submit a joke</h2>
+        <div class="jokes_container" id="jokes_container">
+            <div class="joke">
+                <div class="joke__content">
+                    Why did the chicken cross the playground? To get to the other slide!
+                </div>
+                <div class="joke__footer">
+                    <div class="joke__likes">
+                        <span>3</span>
+                        <button class="joke__btn">
+                            <span class="material-symbols-outlined">
+                                thumb_up
+                            </span>
+                        </button>
+                    </div>
+                    <div class="joke__likes">
+                        <span>3</span>
+                        <button class="joke__btn">
+                            <span class="material-symbols-outlined">
+                                thumb_down
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="joke_form" id="joke_form">
+            <input type="text" name="joke" class="joke_form__input">
+            <button class="joke_form__btn">Submit</button> 
+        </form>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
