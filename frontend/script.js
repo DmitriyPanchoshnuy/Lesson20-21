@@ -29,7 +29,7 @@ function getJokesHTML(joke) {
             <div class="joke__footer">
                 <div class="joke__likes">
                     <span>${joke.likes}</span>
-                    <button class="joke__btn">
+                    <button class="joke__btn" onclick="like(${joke.id})">
                         <span class="material-symbols-outlined">
                             thumb_up
                         </span>
@@ -37,7 +37,7 @@ function getJokesHTML(joke) {
                 </div>
                 <div class="joke__likes">
                     <span>${joke.dislikes}</span>
-                    <button class="joke__btn">
+                    <button class="joke__btn" onclick="dislike(${joke.id})">
                         <span class="material-symbols-outlined">
                             thumb_down
                         </span>
@@ -66,5 +66,19 @@ function like (id) {
     likeXHR.open('GET', 'http://localhost:3000/like?id='+id);
     likeXHR.send()
     likeXHR.responseType = 'json';
+    likeXHR.onload = () => {
+        const joke = likeXHR.response;
+        document.getElementById('joke_'+id).outerHTML = getJokesHTML(joke)
+    }
+}
 
+function dislike (id) {
+    const likeXHR = new XMLHttpRequest();
+    likeXHR.open('GET', 'http://localhost:3000/dislike?id='+id);
+    likeXHR.send()
+    likeXHR.responseType = 'json';
+    likeXHR.onload = () => {
+        const joke = likeXHR.response;
+        document.getElementById('joke_'+id).outerHTML = getJokesHTML(joke)
+    }
 }
